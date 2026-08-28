@@ -1,5 +1,5 @@
 # Youtube Player
-This project tries to recreate the main video user interface from [Youtube](https://www.youtube.com)
+This project tries to recreate the main video user interface from [Youtube](https://www.youtube.com). 
 
 ## Objectives
 - Experiment with Youtube API functions
