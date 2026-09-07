@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: homologation
-      url: ${{ steps.deployment.outputs.page_url }}/homologation
+      url: ${{ steps.deployment.outputs.page_url }}homologation
     steps:
       - name: Checkout
         uses: actions/checkout@v6
