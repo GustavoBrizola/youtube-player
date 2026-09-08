@@ -33,6 +33,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Create .env file
+      
+        # Run Example
+        # echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+        # echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+        # echo "PORT=${{ vars.PORT }}" >> .env
+        run: |
+          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> .env
+        
+
       - name: Set up Node
         uses: actions/setup-node@v6
         with:

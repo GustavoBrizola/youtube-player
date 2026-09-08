@@ -5,6 +5,8 @@ import YoutubePlayer from './pages/YoutubePlayer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <YoutubePlayer/>
+    <div id='site'>
+      <YoutubePlayer/>
+    </div>
   </StrictMode>,
 )

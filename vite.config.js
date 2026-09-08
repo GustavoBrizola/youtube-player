@@ -7,6 +7,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  const envURL = env.VITE_BASE_URL;
   
   return {
     plugins: [react()],
@@ -16,9 +17,9 @@ export default defineConfig(({ mode }) => {
     },
 
     // Public URL base
-    // https://<USER>.github.io/<REPO>/
+    // https://<USER>.github.io/<REPO>/<ENV>
     // https://vite.dev/guide/static-deploy
-    base: '/youtube-player',
+    base: envURL,
 
     // Server dev port
     // https://vite.dev/config/server-options
