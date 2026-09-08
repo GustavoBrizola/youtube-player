@@ -1,6 +1,6 @@
 # Simple workflow for deploying static content to GitHub Pages
 # https://vite.dev/guide/static-deploy
-name: Deploy static content to development environment
+name: Development - Deploy
 
 on:
   # Runs on pushes targeting the default branch
@@ -24,24 +24,22 @@ concurrency:
 # This execute all process to deploy the page 
 jobs:
   # Single deploy job since we're just deploying
+  secrets&variables:
+    steps:
+      - name: Set up variables
+        env:
+          VITE_BASE_URL: ${{ var.VITE_BASE_URL }}
+        run: node index.js
+
+
   deploy:
     runs-on: ubuntu-latest
     environment:
       name: development
-      url: ${{ steps.deployment.outputs.page_url }}development
+      url: ${{ steps.deployment.outputs.page_url } { var.VITE_BASE_URL }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Create .env file
-      
-        # Run Example
-        # echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
-        # echo "API_KEY=${{ secrets.API_KEY }}" >> .env
-        # echo "PORT=${{ vars.PORT }}" >> .env
-        run: |
-          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> .env
-        
+        uses: actions/checkout@v6        
 
       - name: Set up Node
         uses: actions/setup-node@v6
